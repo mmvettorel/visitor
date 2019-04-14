@@ -12,8 +12,8 @@ public class Main {
 		Licenciado lic1 = new Licenciado(3, "Roberto", 9876432);
 		//Arquitecto arq1 = new Arquitecto(4, "ISabel", 16745389);
 		
-		FabricaCorreo fabricaCorreo = new FabricaCorreo();
 		String mensaje = "Lamentamos informarle que ha sido despedido.";
+		FabricaCorreoVisitor visitor = new FabricaCorreoVisitor(mensaje);
 		
 		Collection<Persona> listaPers = new ArrayList<>();
 		listaPers.add(med1);
@@ -22,8 +22,8 @@ public class Main {
 		//listaPers.add(arq1);
 		
 		for (Persona destinatario : listaPers) {
-			String correo = fabricaCorreo.crearCorreo(destinatario, mensaje);
-			System.out.println(correo);
+			destinatario.accept(visitor);
+			System.out.println(visitor.getCorreo());
 		}
 		
 	}

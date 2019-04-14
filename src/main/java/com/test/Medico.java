@@ -18,6 +18,12 @@ public class Medico extends Persona {
 //		return "Medico [especialidad=" + especialidad + ", toString()=" + super.toString() + "]";
 		return "Medico: " + super.toString() + ", especialidad=" + especialidad;
 	}
+
+	@Override
+	public void accept(VisitorPersona visitor) {
+		visitor.visit(this);
+		
+	}
 	
 	
 }

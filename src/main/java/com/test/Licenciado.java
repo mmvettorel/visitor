@@ -6,4 +6,10 @@ public class Licenciado extends Persona {
 		super(id, nombre, dni);
 	}
 
+	@Override
+	public void accept(VisitorPersona visitor) {
+		visitor.visit(this);
+		
+	}
+
 }

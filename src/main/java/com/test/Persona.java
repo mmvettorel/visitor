@@ -1,6 +1,6 @@
 package com.test;
 
-public class Persona {
+public abstract class Persona {
 	
 	private int id;
 	private String nombre;
@@ -28,5 +28,7 @@ public class Persona {
 	public String toString() {
 		return "nombre=" + nombre + ", dni=" + dni;
 	}
+	
+	public abstract void accept(VisitorPersona visitor);
 	
 }

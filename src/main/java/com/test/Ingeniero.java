@@ -12,5 +12,11 @@ public class Ingeniero extends Persona{
 	public TipoIngenierira getTipo() {
 		return tipo;
 	}
+
+	@Override
+	public void accept(VisitorPersona visitor) {
+		visitor.visit(this);
+		
+	}
 	
 }
