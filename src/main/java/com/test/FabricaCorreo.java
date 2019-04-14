@@ -7,9 +7,9 @@ public class FabricaCorreo {
 		String correo;
 		
 		if (destinatario instanceof Medico) {
-			correo = "Estimado Dr. " + destinatario.getNombre() + ": ";
+			correo = "Estimado Dr. " + ((Medico) destinatario).getEspecialidad() + " " + destinatario.getNombre() + ": ";
 		} else if (destinatario instanceof Ingeniero) {
-			correo = "Estimado Ing. " + destinatario.getNombre() + ": ";
+			correo = "Estimado Ing. " + ((Ingeniero) destinatario).getTipo() + " " + destinatario.getNombre() + ": ";
 		} else if (destinatario instanceof Licenciado) {
 			correo = "Estimado Lic. " + destinatario.getNombre() + ": " ;
 		} else {
