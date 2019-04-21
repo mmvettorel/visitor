@@ -2,6 +2,8 @@ package com.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
@@ -11,9 +13,11 @@ public class Main {
 		Ingeniero ing1 = new Ingeniero(2, "Luis", 12897056, TipoIngenierira.ELECTRONICO);
 		Licenciado lic1 = new Licenciado(3, "Roberto", 9876432);
 		Arquitecto arq1 = new Arquitecto(4, "Isabel", 16745389);
-		
+				
 		String mensaje = "Lamentamos informarle que ha sido despedido.";
 		FabricaCorreoVisitor visitor = new FabricaCorreoVisitor(mensaje);
+		
+		Map<Persona, String> mapa = new HashMap<>();
 		
 		Collection<Persona> listaPers = new ArrayList<>();
 		listaPers.add(med1);
@@ -25,7 +29,18 @@ public class Main {
 			visitor.setCorreo("Anuncio: ");
 			destinatario.accept(visitor);
 			System.out.println(visitor.getCorreo());
+			
+			mapa.put(destinatario, destinatario.getNombre());
 		}
+		
+		/* **************************************************************** */
+		Licenciado lic = new Licenciado(3, "Roberto", 9876432);
+	
+		String nombre = mapa.get(lic);
+		
+		System.out.println(nombre);
+		
+		String o = mapa.get(4).toString();
 		
 	}
 
