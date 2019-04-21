@@ -7,4 +7,6 @@ public interface VisitorPersona {
 	public void visit(Ingeniero ing);
 	
 	public void visit(Licenciado lic);
+	
+	public void visit(Arquitecto arq);
 }
